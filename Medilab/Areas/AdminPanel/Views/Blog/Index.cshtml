@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Medilab.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create a New Card</a>
+</p>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table able-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Subtitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PersonImg)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PersonName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                  
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subtitle)
+                            </td>
+                            <td>
+                                <a href="blog-single.html"><img src="~/assets/img/@item.Image" alt="" class="img-fluid"></a>
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PersonImg)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PersonName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                           
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+       </div>
+   </div>
